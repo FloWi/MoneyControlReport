@@ -4,7 +4,8 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.HomeController.generateReport
+GET        /reports              controllers.HomeController.generateReport(name: String = "moneyControlReportExample.csv")
+GET        /reports/:name        controllers.HomeController.generateReport(name: String)
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET        /assets/*file        controllers.Assets.versioned(path="/public", file: Asset)

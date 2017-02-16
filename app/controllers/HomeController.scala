@@ -25,10 +25,10 @@ class HomeController @Inject() extends Controller {
     Ok(views.html.index())
   }
 
-  def generateReport = Action { implicit request =>
+  def generateReport(reportName:String = "moneyControlReportExample.csv") = Action { implicit request =>
 
-    val csvFileContent = Source.fromURI(getClass.getResource("/moneyControlReport.csv").toURI).getLines()
-    val report = MoneyControlReport.parse(csvFileContent)
+    val csvFileContent = Source.fromURI(getClass.getResource(s"/$reportName").toURI).getLines()
+    val report = MoneyControlReport.parse(reportName, csvFileContent)
 
     Ok(views.html.moneyControlReport(report))
 

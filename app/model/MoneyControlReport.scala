@@ -8,7 +8,8 @@ import org.joda.time.format.DateTimeFormat
 import scala.util.{Failure, Success, Try}
 
 case class MoneyControlReport(parsingErrors: List[String],
-                              entries: List[Entry])
+                              entries: List[Entry],
+                              fileName: String)
 
 case class Entry(datum: DateTime,
                  typ: String,
@@ -23,7 +24,7 @@ case class Entry(datum: DateTime,
 
 object MoneyControlReport {
 
-  def parse(csvFile: Iterator[String]): MoneyControlReport = {
+  def parse(fileName: String, csvFile: Iterator[String]): MoneyControlReport = {
 
     val (invalids, valids) = csvFile.toList
       .drop(1)
@@ -38,7 +39,7 @@ object MoneyControlReport {
           }
       }
 
-    MoneyControlReport(invalids, valids)
+    MoneyControlReport(invalids, valids, fileName)
     /*
 Datum;Typ;Betrag;Währung;Kategorie;Person;Konto;Gegenkonto;Gruppe;Notiz
 "01.01.16";"Kontobewegung";"7.187,01";"EUR";"";"";"Einzahlung";"Girokonto";"";"Start"

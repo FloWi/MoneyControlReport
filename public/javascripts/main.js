@@ -1,1 +1,1 @@
-Elm.HelloElm.embed(document.getElementById("elm-playground-outer"))
+Elm.HelloElm.embed(document.getElementById("elm-playground"))

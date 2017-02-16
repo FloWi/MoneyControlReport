@@ -1,0 +1,3 @@
+Datum;Typ;Betrag;Währung;Kategorie;Person;Konto;Gegenkonto;Gruppe;Notiz
+"01.01.16";"Einnahmen";"123.45";"EUR";"";"";"Einzahlung";"Girokonto";"";"Start"
+"01.01.16";"Ausgaben";"-52,50";"EUR";"Strom / TV / Internet";"";"Girokonto";"";"";"GEZ"
