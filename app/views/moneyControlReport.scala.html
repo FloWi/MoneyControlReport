@@ -1,0 +1,63 @@
+@(report: model.MoneyControlReport)
+
+@main("MoneyControlReport") {
+
+    <div class="page-header">
+        <h1>Money Control Report <small>Because Excel sucks...</small></h1>
+    </div>
+
+    <h3>Elm-Playground</h3>
+    <div id="elm-playground">
+    </div>
+
+    <h3>monthly Overview</h3>
+    <div>
+        to be continued ...
+    </div>
+
+    <h3>Details <small>
+        <a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Expand </a>
+    </small></h3>
+
+
+    <div class="collapse" id="collapseExample">
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Datum</th>
+                    <th>Typ</th>
+                    <th>Betrag</th>
+                    <th>Währung</th>
+                    <th>Kategorie</th>
+                    <th>Person</th>
+                    <th>Konto</th>
+                    <th>Gegenkonto</th>
+                    <th>Gruppe</th>
+                    <th>Notiz</th>
+                </tr>
+            </thead>
+            <tbody>
+            @report.entries.map { entry =>
+                <tr>
+                    <td>@entry.datum</td>
+                    <td>@entry.typ</td>
+                    <td>@entry.betrag</td>
+                    <td>@entry.währung</td>
+                    <td>@entry.kategorie</td>
+                    <td>@entry.person</td>
+                    <td>@entry.konto</td>
+                    <td>@entry.gegenkonto</td>
+                    <td>@entry.gruppe</td>
+                    <td>@entry.notiz</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+        <h3>Failed to parse</h3>
+        <pre>
+        @report.parsingErrors.mkString("\n")
+        </pre>
+    </div>
+}
